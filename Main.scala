@@ -18,27 +18,12 @@ object HelloWorld {
 }
 
 object Main extends App {
-  import com.typesafe.config.ConfigFactory
-
-  val additionalConfig = {
-    ConfigFactory.parseString("""
-        akka {
-          typed {
-            loggers = []
-            logging-filter = "akka.typed.DefaultLoggingFilter"
-            mailbox-capacity = 100
-          }
-        }
-    """)
-  }
-
-  val config = additionalConfig.withFallback(akkajs.Config.default)
 
   implicit val timeout = Timeout(5 seconds)
 
   import HelloWorld._
 
-  val system: ActorSystem[Greet] = ActorSystem(greeter, "hello", config = Some(config))
+  val system: ActorSystem[Greet] = ActorSystem(greeter, "hello")
 
   import system.executionContext
   implicit val scheduler = system.scheduler
