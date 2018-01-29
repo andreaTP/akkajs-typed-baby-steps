@@ -1,6 +1,6 @@
-import akka.typed._
-import akka.typed.scaladsl.Actor
-import akka.typed.scaladsl.AskPattern._
+import akka.actor.typed._
+import akka.actor.typed.scaladsl.Actor
+import akka.actor.typed.scaladsl.AskPattern._
 import scala.concurrent.Future
 import scala.concurrent.duration._
 // import scala.concurrent.Await
@@ -32,7 +32,10 @@ object Main extends App {
 
   for {
     greeting ← future.recover { case ex ⇒ ex.getMessage }
-    done ← { println(s"result: $greeting"); system.terminate() }
+    done ← {
+      println(s"result: $greeting")
+      system.terminate()
+    }
   } println("system terminated")
 
 }

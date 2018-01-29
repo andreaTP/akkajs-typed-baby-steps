@@ -3,9 +3,9 @@ lazy val root =
     .in(file("."))
     .enablePlugins(ScalaJSPlugin)
     .settings(
-      scalaVersion := "2.12.4",
+      scalaVersion := "2.11.11",
       libraryDependencies ++= Seq(
-        "org.akka-js" %%% "akkajsactortyped" % "1.2.5.8-typed-SNAPSHOT"
+        "org.akka-js" %%% "akkajsactortyped" % "1.2.5.9"
       ),
       fork in run := true,
       cancelable in Global := true,
