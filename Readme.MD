@@ -1,11 +1,7 @@
 
-***Very first, all hacked around Akka-typed on Akka.Js example!***
+Very basic example working with Akka Typed on Scala.Js
 
-to run this example please first clone `akka.js`
 
-checkout branch `retyped`
-
-```bash
-sbt akkaJsActorJS/publishLocal
-sbt akkaJsActorTypedJS/publishLocal
+```
+sbt run
 ```
